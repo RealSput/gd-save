@@ -77,6 +77,8 @@ readStream.on('end', function() {
     }
 
     if (!last_level) throw new Error(`Level "${level_name}" not found in savefile!`)
+    
+    // these are just some tests and shit dw about it (the tests fail)
     let old_doc = output.toString();
     console.log('before', last_level)
     add_to_level("1,1,2,100,3,15;");
