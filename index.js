@@ -36,7 +36,7 @@ class LevelReader {
 
       readStream.on("end", () => {
         let last_level;
-        let add_to_level;
+        let add_to_level, set_level;
 
         output = Buffer.concat(output);
         for (let i = 0; i < output.length; i++) {
@@ -68,7 +68,14 @@ class LevelReader {
                       decode_level(tags[i + 1].childNodes[0]._rawText) + lvlstr;
                     dat.raw = tags[i + 1].childNodes[0]._rawText;
                   };
+				  
+				  set_level = (lvlstr) => {
+                    tags[i + 1].childNodes[0]._rawText = encode_level(lvlstr);
+                    dat.levelstring = lvlstr;
+                    dat.raw = tags[i + 1].childNodes[0]._rawText;
+                  };
                 }
+				
 
                 if (tag.childNodes[0]._rawText == "k2") dat.name = tags[i + 1].childNodes[0]._rawText;
               }
@@ -90,6 +97,7 @@ class LevelReader {
         resolve({
           data: last_level,
           add: add_to_level,
+		  set: set_level,
           save: () => {
             let alm = zlib.gzipSync(output.toString());
             alm = Buffer.from(
