@@ -59,6 +59,7 @@ class LevelReader {
                   dat.levelstring = decode_level(
                     tags[i + 1].childNodes[0]._rawText
                   );
+				  dat.xml = curr.toString()
                   dat.raw = tags[i + 1].childNodes[0]._rawText;
                   add_to_level = (lvlstr) => {
                     tags[i + 1].childNodes[0]._rawText = encode_level(
@@ -113,6 +114,8 @@ class LevelReader {
       });
     });
   }
+  encode_level(str) { encode_level(str) }
+  decode_level(str) { decode_level(str) }
 }
 
 module.exports = LevelReader;
