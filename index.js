@@ -162,6 +162,7 @@ class LevelReader {
                     if (curr.rawTagName == "d") {
                         let tags = curr.childNodes; // tags reference
                         let dat = {};
+                        dat.xml = curr.toString();
                         tags.forEach((tag, i) => {
                             if (tag.rawTagName == "k") {
                                 if (tag.childNodes[0]._rawText == "k4") {
@@ -222,6 +223,7 @@ class LevelReader {
                     if (curr.rawTagName == "d") {
                         let tags = curr.childNodes; // tags reference
                         let dat = {};
+                        dat.xml = curr.toString();
                         tags.forEach((tag, i) => {
                             if (tag.rawTagName == "k") {
                                 if (tag.childNodes[0]._rawText == "k4") {
