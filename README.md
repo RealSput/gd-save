@@ -2,7 +2,7 @@
 A JS library to read and edit the GD savefile in 60 ms or less.
 
 # Notes
-Currently, this only works for Windows. Feel free to make a PR that adds support to other platforms.
+Currently, this supports Windows, Mac, Linux and Android.
 
 # Usage
 ```js
